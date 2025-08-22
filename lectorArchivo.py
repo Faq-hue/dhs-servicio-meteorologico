@@ -4,22 +4,46 @@ def lectorArchivo(nombreArchivo):
     
     with open(nombreArchivo, "r", encoding="latin1") as archivo:
         lineas = archivo.readlines()
+        dict = {}
         i = 0
-        listaParseada = []
 
         for linea in lineas:
+
            if(not linea.startswith("FECHA") and not linea.startswith("----")):         
-              linea = linea.strip()
+                
+                partes = linea.split()
+                
+                if partes:
+                    fecha = partes[0]
 
-              linea = linea.replace(" ", "-")
+                    # la linea esta completa
+                    if(len(partes) == 4):
+                        valormax = partes[1]
+                        valormin = partes[2]
+                        nombre = " ".join(partes[3:])
 
-              listaParseada.append(linea.strip())
-              
-              i = i+1
+                    # falta valormax
+                    elif(len(partes) == 3):
+                        try:
+                            float(partes[1])
+                            valormax = partes[1]
+                        except ValueError:
+                            valormax = None
+                        try:
+                            float(partes[2])
+                            valormin = partes[2]
+                        except ValueError:
+                            valormin = None
+                    else:
+                        valormax = None
+                        valormin = None
+                        nombre = " ".join(partes[3:])
+                        
+                    dict["fecha"] = fecha
+                    dict["max"] = valormax
+                    dict["min"] = valormin
+                    dict["nombre"] = nombre
+                    
+                    print(dict)
 
-        #print(listaParseada)
-    
-        
-
-
-    return dict(enumerate(set(lineas)))
+    return 1#dict(enumerate(set(lineas)))
