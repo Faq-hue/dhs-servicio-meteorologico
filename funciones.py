@@ -1,6 +1,9 @@
 
 #Un reporte por estación meteorológica de la temperatura máxima y mínima registradas en el período del último año.
-def maxminPorAño():
+def maxminPorAño(datos):
+    for estacion in datos:
+        print(estacion)
+    
     return 1
 
 #La estación meteorológica que registre la mayor amplitud térmica en el mismo día, indicando el día del año que ocurrió
