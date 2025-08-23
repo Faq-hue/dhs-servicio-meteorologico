@@ -3,7 +3,7 @@ import lectorArchivo
 diccionario = lectorArchivo.lectorArchivo("registro_temperatura365d_smn.txt")
 
 
-#print(diccionario)
+print(diccionario["EL PALOMAR AERO"])
 
 #def temperaturaMaxima():
 
