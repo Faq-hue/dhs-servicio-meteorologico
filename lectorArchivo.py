@@ -1,71 +1,45 @@
 import string
 
 def lectorArchivo(nombreArchivo):
+    datos = {}
     
     with open(nombreArchivo, "r", encoding="latin1") as archivo:
-        lineas = archivo.readlines()
-        datos = {}
+        
 
-        for linea in lineas:
+        for linea in archivo:
+            linea = linea.strip()
+            if(not linea or linea.startswith("FECHA") or linea.startswith("----")):
+                 continue
+           
+            partes = linea.split()
+            fecha = partes[0]
+            valorMax, valorMin = None, None
 
-           if(not linea.startswith("FECHA") and not linea.startswith("----") and not linea.startswith(" ")):         
-                
-                partes = linea.split()
-                
-                if (partes):
-                    fecha = partes[0]
+            try:
+             valorMax = float(partes[1])
 
-                    valormax, valormin, nombre = None, None, None
-                    
-                    if(type(partes[1]) == float or type(partes[2]) == float):
-                        valormax = partes[1]
-                        valormin = partes[2]
-                        nombre = " ".join(partes[3:])
+            except(ValueError, IndexError):
+                valorMax = None
 
-                    # al string le falta todo
-                    if(type(partes[1] == string)):
-                        valormax = None
-                        valormin = None
-                        nombre = " ".join(partes[1:])
-                    
-                    else:
+            try:
+                valorMin = float(partes[1])
 
-                        # al string le falta max o min
-                        try:
-                            
-                            valormax = float(partes[1])
-                        except :
-                            valormax = None
+            except(ValueError, IndexError):
+                valorMin = None
 
-                        try:      
-                            valormin = float(partes[2])
-                        except :
-                            valormin = None
-                        
-                        nombre = " ".join(partes[2:])
-
-
-                    # el string esta completo
-                    #if(len(partes) >= 4):
-                     #   try:
-                      #      valormax = float(partes[1])
-                       # except ValueError:
-                        #    valormax = None
-
-                        #try:
-                         #   valormin = float(partes[2])
-                        #except ValueError:
-                         #   valormin = None
-                        
-                        #nombre = " ".join(partes[3:])
-                    
-                    
-                    #temperaturas = {"tmax": valormax, "tmin":valormin, "fecha": fecha}
-                    if nombre not in datos:
-                        datos[nombre] = {"tmax": [], "tmin": [], "fecha":[]}
-                    
-                    datos[nombre]["tmax"].append(valormax)
-                    datos[nombre]["tmin"].append(valormin)
-                    datos[nombre]["fecha"].append(fecha)
+            if(valorMax is not None and valorMin is not None):
+                nombre = " ".join(partes[3:])
+            elif(valorMax is not None):
+                nombre = " ".join(partes[2:])
+            else:
+                nombre = " ".join(partes[1:])
+            
+            
+            if nombre not in datos:
+                datos[nombre] = {"tmax": [], "tmin": [], "fecha":[]}
+            
+            datos[nombre]["tmax"].append(valorMax)
+            datos[nombre]["tmin"].append(valorMin)
+            datos[nombre]["fecha"].append(fecha)
                 
     return datos
