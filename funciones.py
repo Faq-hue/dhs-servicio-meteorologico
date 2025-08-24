@@ -1,8 +1,29 @@
 
 #Un reporte por estación meteorológica de la temperatura máxima y mínima registradas en el período del último año.
 def maxminPorAño(datos):
-    for estacion in datos:
-        print(estacion)
+    
+    for estacion in datos :
+        max = -1000
+        min = 1000
+        
+        for temperaturaMaxima in datos[estacion]["tmax"]:
+            
+            if temperaturaMaxima != None:
+                if max < temperaturaMaxima:
+                        max = temperaturaMaxima
+                    
+        for temperaturaMinima in datos[estacion]["tmin"]:
+            
+            if temperaturaMinima != None:
+                if min > temperaturaMinima:
+                    min = temperaturaMinima
+            
+                
+        print(str(estacion)+" temperatura maxima: " + str(max))
+        print(str(estacion)+" temperatura minima: " + str(min))
+        
+        
+        
     
     return 1
 
