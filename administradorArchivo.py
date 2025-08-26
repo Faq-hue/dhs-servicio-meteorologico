@@ -5,40 +5,33 @@ def leerArchivo(nombreArchivo):
     
     with open(nombreArchivo, "r", encoding="latin1") as archivo:
         
-
         for linea in archivo:
             linea = linea.strip()
+            
             #entrar omitiendo las primeras lineas
             if(not linea or linea.startswith("FECHA") or linea.startswith("----")):
                  continue
            
-            partes = linea.split()
-            fecha = partes[0]
+            #asignar fecha
+            fecha = linea[0:8]
             valorMax, valorMin = None, None
 
-            #intentar ingresar los valores de maximo y minimo
+            #intentar ingresar el valor de maximo
             try:
-             valorMax = float(partes[1])
+             valorMax = float(linea[10:14].strip())
 
             except(ValueError, IndexError):
                 valorMax = None
 
+            #intentar ingresar el valor de minimo
             try:
-                valorMin = float(partes[1])
+                valorMin = float(linea[16:20].strip())
 
             except(ValueError, IndexError):
                 valorMin = None
 
-            #caso: no hay minimo ni maximo
-            if(valorMax is not None and valorMin is not None):
-                nombre = " ".join(partes[3:])
-            #caso: no hay maximo
-            elif(valorMax is not None):
-                nombre = " ".join(partes[2:])
-            #caso: no hay minimo
-            else:
-                nombre = " ".join(partes[1:])
-            
+            #asignar nombre
+            nombre = " ".join(linea[21:].split())
             
             #si no hay datos inicializar el diccionario igual
             if nombre not in datos:
