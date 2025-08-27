@@ -1,10 +1,37 @@
 import administradorArchivo, funciones
 
 datos = administradorArchivo.leerArchivo("registro_temperatura365d_smn.txt")
+menu = 1
 
-#funciones.maxminPorAño(datos,"2025")
-#funciones.estacionMayorAmplitud(datos)
-#funciones.estacionMenorAmplitud(datos)
-#funciones.maximaDiferenciaEstaciones(datos)
-#funciones.minimaDiferenciaEstaciones(datos)
+while(menu == 1):
 
+    print("Menu")
+    print("1. Reporte por estación meteorológica de la temperatura máxima y mínima registradas en el período del último año.")
+    print("2. La estación meteorológica que registre la mayor amplitud térmica en el mismo día, indicando el día del año que ocurrió")
+    print("3. La estación meteorológica que registre la menor amplitud térmica en el mismo día, indicando el día del año que ocurrió")
+    print("4. La máxima diferencia de temperatura entre minima y máxima temperatura entre dos estaciones meteorológicas en un mismo día, indicando las temperaturas y las estaciones que las registraron.")
+    print("5. La mínima diferencia de temperatura entre minima y máxima temperatura entre dos estaciones meteorológicas en un mismo día, indicando las temperaturas y las estaciones que las registraron.")
+    print("_. Salir")
+    opcion = input()
+
+    match opcion:
+        case "1":
+            anio = input("Ingrese el año ")
+            funciones.maxminPorAño(datos,anio)
+
+        case "2":
+            funciones.estacionMayorAmplitud(datos)      
+            print("a")  
+
+        case "3":
+            funciones.estacionMenorAmplitud(datos)
+
+        case "4":
+            funciones.maximaDiferenciaEstaciones(datos)
+
+        case "5":
+            funciones.minimaDiferenciaEstaciones(datos)
+
+        case _:
+            print("Saliendo del programa")
+            menu = 0

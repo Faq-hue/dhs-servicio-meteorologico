@@ -83,7 +83,7 @@ def estacionMenorAmplitud(datos):
 
 #La máxima diferencia de temperatura entre minima y máxima temperatura entre dos estaciones meteorológicas en un mismo día, indicando las temperaturas y las estaciones que las registraron.
 def maximaDiferenciaEstaciones(datos):
-    # Tomamos las fechas de la primera estación como referencia
+    #tomamos las fechas de la primera estación como referencia
     primeraEstacion = next(iter(datos))
     fechas = datos[primeraEstacion]["fecha"]
 
@@ -100,9 +100,9 @@ def maximaDiferenciaEstaciones(datos):
         tminDelDia = float("inf")
         estacionMin = ""
 
-        # Recorremos todas las estaciones
+        #recorremos todas las estaciones
         for estacion, registros in datos.items():
-            # ⚠️ Chequeamos que el índice exista en ambas listas
+            
             if i < len(registros["tmax"]) and i < len(registros["tmin"]):
                 tmaxi = registros["tmax"][i]
                 tmini = registros["tmin"][i]
@@ -115,7 +115,7 @@ def maximaDiferenciaEstaciones(datos):
                     tminDelDia = tmini
                     estacionMin = estacion
 
-        # Solo calculamos si encontramos valores válidos
+        #solo calculamos si encontramos valores validos
         if estacionMax and estacionMin:
             diferencia = tmaxDelDia - tminDelDia
 
@@ -138,7 +138,7 @@ def maximaDiferenciaEstaciones(datos):
 #La mínima diferencia de temperatura entre minima y máxima temperatura entre dos estaciones meteorológicas en un mismo día, indicando las temperaturas y las estaciones que las registraron.
 def minimaDiferenciaEstaciones(datos):
     
-    # Tomamos las fechas de la primera estación como referencia
+    #tomamos las fechas de la primera estación como referencia
     primeraEstacion = next(iter(datos))
     fechas = datos[primeraEstacion]["fecha"]
 
@@ -155,9 +155,9 @@ def minimaDiferenciaEstaciones(datos):
         tminDelDia = float("inf")
         estacionMin = ""
 
-        # Recorremos todas las estaciones
+        #recorremos todas las estaciones
         for estacion, registros in datos.items():
-            # ⚠️ Chequeamos que el índice exista en ambas listas
+          
             if i < len(registros["tmax"]) and i < len(registros["tmin"]):
                 tmaxi = registros["tmax"][i]
                 tmini = registros["tmin"][i]
@@ -170,7 +170,7 @@ def minimaDiferenciaEstaciones(datos):
                     tminDelDia = tmini
                     estacionMin = estacion
 
-        # Solo calculamos si encontramos valores válidos
+        #solo calculamos si encontramos valores válidos
         if estacionMax and estacionMin:
             diferencia = tmaxDelDia - tminDelDia
 
