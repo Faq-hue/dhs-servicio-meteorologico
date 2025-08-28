@@ -47,11 +47,6 @@ def leerArchivo(nombreArchivo):
 def escribirArchivo(resultados):
     
     with open("resultados.txt", "w", encoding="latin1") as archivo:
-        
-       
-       
-       
-       
        archivo.write(str(resultados)+"\n")
         
     return 1
