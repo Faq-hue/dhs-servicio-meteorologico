@@ -2,6 +2,7 @@
 Dessarrollo de Herramientas de Software — Trabajo Práctico
 Maximiliano A. Eschoyez
 Fecha de Entrega: Lunes 1 de Septiembre de 2025
+
 ## Resumen
 El objetivo de este Trabajo Práctico es implementar lo visto en clases sobre el uso de colecciones en Python3.
 El programa a desarrollar para esta etapa tiene como objetivo tomar un archivo de texto con las temperaturas máximas y mínimas del país y realizar diferentes análisis sobre los datos.
