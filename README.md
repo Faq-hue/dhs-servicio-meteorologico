@@ -13,5 +13,5 @@ El programa deberá reportar en un archivo de texto lo siguiente:
 - Un reporte por estación meteorológica de la temperatura máxima y mínima registradas en el período del último año.
 - La estación meteorológica que registre la mayor amplitud térmica en el mismo día, indicando el día del año que ocurrió
 - La estación meteorológica que registre la menor amplitud térmica en el mismo día, indicando el día del año que ocurrió
--La máxima diferencia de temperatura entre minima y máxima temperatura entre dos estaciones meteorológicas en un mismo día, indicando las temperaturas y las estaciones que las registraron.
+- La máxima diferencia de temperatura entre minima y máxima temperatura entre dos estaciones meteorológicas en un mismo día, indicando las temperaturas y las estaciones que las registraron.
 - La mínima diferencia de temperatura entre minima y máxima temperatura entre dos estaciones meteorológicas en un mismo día, indicando las temperaturas y las estaciones que las registraron.
