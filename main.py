@@ -17,20 +17,19 @@ while(menu == 1):
     match opcion:
         case "1":
             anio = input("Ingrese el año ")
-            funciones.maxminPorAño(datos,anio)
+            administradorArchivo.escribirArchivo(funciones.maxminPorAño(datos,anio))
 
         case "2":
-            funciones.estacionMayorAmplitud(datos)      
-            print("a")  
+            administradorArchivo.escribirArchivo(funciones.estacionMayorAmplitud(datos))
 
         case "3":
-            funciones.estacionMenorAmplitud(datos)
+            administradorArchivo.escribirArchivo(funciones.estacionMenorAmplitud(datos))
 
         case "4":
-            funciones.maximaDiferenciaEstaciones(datos)
+            administradorArchivo.escribirArchivo(funciones.maximaDiferenciaEstaciones(datos))
 
         case "5":
-            funciones.minimaDiferenciaEstaciones(datos)
+            administradorArchivo.escribirArchivo(funciones.minimaDiferenciaEstaciones(datos))
 
         case _:
             print("Saliendo del programa")

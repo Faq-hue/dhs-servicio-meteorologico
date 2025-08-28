@@ -56,7 +56,7 @@ def estacionMayorAmplitud(datos):
     
     print("Estacion con mayor amplitud: " + str(estacionMayor) + "\nen la fecha de:" + str(fechaMayor))
     
-    return 1
+    return "Estacion con mayor amplitud: " + str(estacionMayor) + "\nen la fecha de:" + str(fechaMayor)
 
 #La estación meteorológica que registre la menor amplitud térmica en el mismo día, indicando el día del año que ocurrió
 def estacionMenorAmplitud(datos):
@@ -79,7 +79,7 @@ def estacionMenorAmplitud(datos):
     
     print("Estacion con menor amplitud: " + str(estacionMenor) + "\nen la fecha de:" + str(fechaMenor))
     
-    return 1
+    return "Estacion con menor amplitud: " + str(estacionMenor) + "\nen la fecha de:" + str(fechaMenor)
 
 #La máxima diferencia de temperatura entre minima y máxima temperatura entre dos estaciones meteorológicas en un mismo día, indicando las temperaturas y las estaciones que las registraron.
 def maximaDiferenciaEstaciones(datos):
@@ -132,7 +132,7 @@ def maximaDiferenciaEstaciones(datos):
     print(f"Tmax: {valorTmax} °C ({estacionTmax})")
     print(f"Tmin: {valorTmin} °C ({estacionTmin})")
 
-    return 1
+    return "Fecha: " + str(mayorFecha) + "\nMayor diferencia: " + str(mayorDiferencia) + "°C\nTmax: " + str(valorTmax) + "°C (" + str(estacionTmax) + ")\nTmin: " + str(valorTmin) + "°C (" + str(estacionTmin) + ")\n"
 
 
 #La mínima diferencia de temperatura entre minima y máxima temperatura entre dos estaciones meteorológicas en un mismo día, indicando las temperaturas y las estaciones que las registraron.
@@ -183,8 +183,8 @@ def minimaDiferenciaEstaciones(datos):
                 valorTmin = tminDelDia
 
     print("Fecha:", menorFecha)
-    print("Mayor diferencia:", menorDiferencia, "°C")
+    print("Menor diferencia:", menorDiferencia, "°C")
     print(f"Tmax: {valorTmax} °C ({estacionTmax})")
     print(f"Tmin: {valorTmin} °C ({estacionTmin})")
 
-    return 1
+    return "Fecha: " + str(menorFecha) + "\nMenor diferencia: " + str(menorDiferencia) + "°C\nTmax: " + str(valorTmax) + "°C (" + str(estacionTmax) + ")\nTmin: " + str(valorTmin) + "°C (" + str(estacionTmin) + ")\n"
